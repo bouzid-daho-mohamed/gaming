@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +12,7 @@ const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { totalItems } = useCart();
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,11 +46,11 @@ const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Products', path: '/products' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Admin', path: '/admin' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.products'), path: '/products' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' },
+    { name: t('nav.admin'), path: '/admin' },
   ];
 
   return (
@@ -76,6 +79,8 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
+          <LanguageSwitcher />
+          
           <button
             onClick={toggleSearch}
             className="p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -132,7 +137,7 @@ const Header: React.FC = () => {
               <input
                 id="search-input"
                 type="text"
-                placeholder="Search for products..."
+                placeholder={t('common.search')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300"
@@ -145,5 +150,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

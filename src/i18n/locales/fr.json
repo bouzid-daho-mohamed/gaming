@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact",
+    "admin": "Administration",
+    "cart": "Panier"
+  },
+  "home": {
+    "hero": {
+      "title": "Améliorez Votre Style Gaming",
+      "subtitle": "Vêtements et accessoires gaming premium pour PlayStation, Xbox et plus. Conçu par des gamers, pour des gamers.",
+      "shopNow": "Voir la Collection",
+      "aboutUs": "À Propos"
+    },
+    "featured": {
+      "title": "Équipement Gaming en Vedette",
+      "subtitle": "Améliorez votre expérience de jeu avec notre sélection premium d'accessoires et de produits gaming.",
+      "viewAll": "Voir Tous les Produits"
+    }
+  },
+  "product": {
+    "addToCart": "Ajouter au Panier",
+    "color": "Couleur",
+    "quantity": "Quantité",
+    "similar": "Produits Similaires",
+    "new": "Nouveau",
+    "featured": "En Vedette"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "continueShopping": "Continuer les Achats",
+    "total": "Total",
+    "checkout": "Commander",
+    "remove": "Supprimer"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Succès",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  }
+}

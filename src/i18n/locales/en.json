@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "admin": "Admin",
+    "cart": "Cart"
+  },
+  "home": {
+    "hero": {
+      "title": "Level Up Your Gaming Style",
+      "subtitle": "Premium gaming apparel and accessories for PlayStation, Xbox, and more. Designed for gamers, by gamers.",
+      "shopNow": "Shop Collection",
+      "aboutUs": "About Us"
+    },
+    "featured": {
+      "title": "Featured Gaming Gear",
+      "subtitle": "Level up your gaming experience with our premium selection of gaming accessories and merchandise.",
+      "viewAll": "View All Products"
+    }
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "color": "Color",
+    "quantity": "Quantity",
+    "similar": "Similar Products",
+    "new": "New",
+    "featured": "Featured"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}
