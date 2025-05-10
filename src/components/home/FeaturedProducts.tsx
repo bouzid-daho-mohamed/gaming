@@ -1,12 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import ProductCard from '../product/ProductCard';
-import { getFeaturedProducts } from '../../data/products';
+import { supabase } from '../../lib/supabase';
+import { Product } from '../../types';
 
 const FeaturedProducts: React.FC = () => {
-  const featuredProducts = getFeaturedProducts();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        setProducts(data.map(product => ({
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          category: product.category,
+          image: product.image,
+          images: product.images || [],
+          colors: product.colors || [],
+          featured: product.featured,
+          isNew: product.is_new
+        })));
+      }
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, []);
   
+  if (loading) {
+    return (
+      <section className="py-16 bg-gray-900">
+        <div className="container">
+          <div className="text-center text-white">Loading...</div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-16 bg-gray-900">
       <div className="container">
@@ -27,7 +66,7 @@ const FeaturedProducts: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProducts.map(product => (
+          {products.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

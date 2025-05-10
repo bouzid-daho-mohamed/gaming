@@ -1,10 +1,8 @@
-// src/pages/AdminOrders.tsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 
-// Définition des types pour TypeScript
 interface OrderItem {
   id: string;
   name: string;
@@ -49,90 +47,107 @@ export default function AdminOrders() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-6">Catalogue</h2>
-        <ul className="space-y-4">
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Propriétaires</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Unités</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Commandes</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Utilisateurs</li>
-        </ul>
-      </aside>
+    <div className="pt-24 pb-16">
+      <div className="container max-w-6xl mx-auto">
+        <div className="mb-8">
+          <Link to="/admin" className="inline-flex items-center text-gray-600 hover:text-gray-900">
+            <ArrowLeft size={20} className="mr-2" />
+            Back to Admin
+          </Link>
+        </div>
 
-      {/* Main Content */}
-      <main className="flex-1 bg-gray-50 p-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold">Commandes</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Orders Management</h1>
           <button
             onClick={fetchOrders}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
           >
-            Rafraîchir
+            Refresh Orders
           </button>
         </div>
 
         {loading ? (
-          <p>Chargement...</p>
+          <div className="text-center py-8">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading orders...</p>
+          </div>
+        ) : orders.length === 0 ? (
+          <div className="text-center py-12 bg-white rounded-lg shadow">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">No Orders Found</h2>
+            <p className="text-gray-600">There are currently no orders in the system.</p>
+          </div>
         ) : (
-          <div className="overflow-x-auto bg-white shadow rounded-lg">
+          <div className="bg-white rounded-lg shadow overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-100">
+              <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Téléphone</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Wilaya</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Baladia</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total (DZD)</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                  <th className="px-6 py-3" />
+                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {orders.map(order => (
                   <React.Fragment key={order.id}>
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.name}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.phone}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.wilaya}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.baladia}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order.total_price.toFixed(2)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(order.created_at).toLocaleString()}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">{order.name}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">{order.phone}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">
+                          {order.wilaya}, {order.baladia}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">
+                          ${order.total_price.toFixed(2)}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-500">
+                          {new Date(order.created_at).toLocaleDateString()}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right">
                         <button
                           onClick={() => setExpandedId(expandedId === order.id ? null : order.id)}
-                          className="text-blue-600 hover:text-blue-900 flex items-center"
+                          className="inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-900"
                         >
                           {expandedId === order.id ? (
-                            <><ChevronUp size={16} /><span className="ml-1">Cacher</span></>
+                            <>Hide Details <ChevronUp size={16} className="ml-1" /></>
                           ) : (
-                            <><ChevronDown size={16} /><span className="ml-1">Détails</span></>
+                            <>View Details <ChevronDown size={16} className="ml-1" /></>
                           )}
                         </button>
                       </td>
                     </tr>
-
                     {expandedId === order.id && (
-                      <tr className="bg-gray-50">
-                        <td colSpan={7} className="px-6 py-4">
-                          <h4 className="font-medium mb-2">Produits commandés :</h4>
-                          <ul className="list-disc list-inside space-y-1">
-                            {order.items.map((item, idx) => (
-                              <li key={idx} className="text-sm text-gray-700">
-                                <Link
-                                  to={`/products/${item.id}`}
-                                  className="text-blue-600 hover:underline"
-                                >
-                                  {item.name}
-                                </Link>
-                                {' '}— Qté : {item.quantity} — Prix unitaire : {item.price.toFixed(2)} DZD
-                                {item.selectedColor && (
-                                  <span> — Couleur : {item.selectedColor}</span>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
+                      <tr>
+                        <td colSpan={6} className="px-6 py-4 bg-gray-50">
+                          <div className="text-sm text-gray-900">
+                            <h4 className="font-medium mb-2">Order Items:</h4>
+                            <ul className="space-y-2">
+                              {order.items.map((item, idx) => (
+                                <li key={idx} className="flex items-center justify-between">
+                                  <div>
+                                    <span className="font-medium">{item.name}</span>
+                                    {item.selectedColor && (
+                                      <span className="text-gray-600"> - {item.selectedColor}</span>
+                                    )}
+                                  </div>
+                                  <div className="text-gray-600">
+                                    {item.quantity} × ${item.price.toFixed(2)}
+                                  </div>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </td>
                       </tr>
                     )}
@@ -142,7 +157,7 @@ export default function AdminOrders() {
             </table>
           </div>
         )}
-      </main>
+      </div>
     </div>
   );
 }
