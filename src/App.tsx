@@ -1,4 +1,4 @@
-// src/App.tsx (ou .jsx)
+// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header        from './components/layout/Header';
 import Footer        from './components/layout/Footer';
@@ -8,9 +8,8 @@ import ProductDetail from './pages/ProductDetail';
 import Cart          from './pages/Cart';
 import About         from './pages/About';
 import Contact       from './pages/Contact';
-// Supprimez ou conservez l'ancien Admin si vous en avez besoin ailleurs
-// import Admin       from './pages/Admin';
-import AdminOrders   from './pages/AdminOrders';  // ← nouveau
+import Admin         from './pages/Admin';
+import AdminOrders   from './pages/AdminOrders';
 import AddProduct    from './pages/AddProduct';
 import ChatBot       from './components/chat/ChatBot';
 import { CartProvider } from './context/CartContext';
@@ -35,13 +34,9 @@ function App() {
               <Route path="/cart"             element={<Cart />} />
               <Route path="/about"            element={<About />} />
               <Route path="/contact"          element={<Contact />} />
-              <Route path="/addproduct"       element={<AddProduct />} />
-
-              {/* Route pour consulter toutes les commandes */}
+              <Route path="/admin"            element={<Admin />} />
               <Route path="/admin/orders"     element={<AdminOrders />} />
-
-              {/* (Optionnel) si vous gardez un tableau de bord admin générique */}
-              {/* <Route path="/admin"          element={<Admin />} /> */}
+              <Route path="/addproduct"       element={<AddProduct />} />
             </Routes>
           </main>
 
