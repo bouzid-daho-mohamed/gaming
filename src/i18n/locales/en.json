@@ -5,19 +5,47 @@
     "about": "About",
     "contact": "Contact",
     "admin": "Admin",
-    "cart": "Cart"
+    "cart": "Cart",
+    "search": "Search products..."
   },
   "home": {
     "hero": {
+      "newCollection": "New Collection 2025",
       "title": "Level Up Your Gaming Style",
       "subtitle": "Premium gaming apparel and accessories for PlayStation, Xbox, and more. Designed for gamers, by gamers.",
       "shopNow": "Shop Collection",
-      "aboutUs": "About Us"
+      "aboutUs": "About Us",
+      "happyCustomers": "Happy Customers"
     },
     "featured": {
       "title": "Featured Gaming Gear",
       "subtitle": "Level up your gaming experience with our premium selection of gaming accessories and merchandise.",
       "viewAll": "View All Products"
+    },
+    "categories": {
+      "title": "Gaming Collections",
+      "subtitle": "Discover our exclusive gaming apparel and accessories designed for true gamers.",
+      "shopCollection": "Shop Collection"
+    },
+    "promo": {
+      "title": "Join the Gaming Community",
+      "subtitle": "Stay updated with the latest gaming gear, exclusive deals, and gaming community events.",
+      "joinNow": "Join Now",
+      "emailPlaceholder": "Your email address",
+      "benefits": {
+        "gear": {
+          "title": "Gaming Gear",
+          "subtitle": "Premium gaming accessories"
+        },
+        "rewards": {
+          "title": "Exclusive Rewards",
+          "subtitle": "Member-only benefits"
+        },
+        "support": {
+          "title": "24/7 Support",
+          "subtitle": "Expert gaming assistance"
+        }
+      }
     }
   },
   "product": {
@@ -26,21 +54,39 @@
     "quantity": "Quantity",
     "similar": "Similar Products",
     "new": "New",
-    "featured": "Featured"
+    "featured": "Featured",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "description": "Description",
+    "specifications": "Specifications",
+    "reviews": "Reviews",
+    "relatedProducts": "You May Also Like"
   },
   "cart": {
     "title": "Shopping Cart",
     "empty": "Your cart is empty",
     "continueShopping": "Continue Shopping",
     "total": "Total",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
     "checkout": "Checkout",
-    "remove": "Remove"
+    "remove": "Remove",
+    "summary": "Order Summary",
+    "items": "items",
+    "item": "item"
   },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
     "success": "Success",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "price": "Price",
+    "category": "Category",
+    "all": "All"
   }
 }

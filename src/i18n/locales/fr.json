@@ -5,19 +5,47 @@
     "about": "À propos",
     "contact": "Contact",
     "admin": "Administration",
-    "cart": "Panier"
+    "cart": "Panier",
+    "search": "Rechercher des produits..."
   },
   "home": {
     "hero": {
+      "newCollection": "Nouvelle Collection 2025",
       "title": "Améliorez Votre Style Gaming",
       "subtitle": "Vêtements et accessoires gaming premium pour PlayStation, Xbox et plus. Conçu par des gamers, pour des gamers.",
       "shopNow": "Voir la Collection",
-      "aboutUs": "À Propos"
+      "aboutUs": "À Propos",
+      "happyCustomers": "Clients Satisfaits"
     },
     "featured": {
       "title": "Équipement Gaming en Vedette",
       "subtitle": "Améliorez votre expérience de jeu avec notre sélection premium d'accessoires et de produits gaming.",
       "viewAll": "Voir Tous les Produits"
+    },
+    "categories": {
+      "title": "Collections Gaming",
+      "subtitle": "Découvrez nos vêtements et accessoires gaming exclusifs conçus pour les vrais gamers.",
+      "shopCollection": "Voir la Collection"
+    },
+    "promo": {
+      "title": "Rejoignez la Communauté Gaming",
+      "subtitle": "Restez informé des derniers équipements gaming, des offres exclusives et des événements communautaires.",
+      "joinNow": "Rejoindre",
+      "emailPlaceholder": "Votre adresse email",
+      "benefits": {
+        "gear": {
+          "title": "Équipement Gaming",
+          "subtitle": "Accessoires premium"
+        },
+        "rewards": {
+          "title": "Récompenses Exclusives",
+          "subtitle": "Avantages membres"
+        },
+        "support": {
+          "title": "Support 24/7",
+          "subtitle": "Assistance expert gaming"
+        }
+      }
     }
   },
   "product": {
@@ -26,21 +54,39 @@
     "quantity": "Quantité",
     "similar": "Produits Similaires",
     "new": "Nouveau",
-    "featured": "En Vedette"
+    "featured": "En Vedette",
+    "inStock": "En Stock",
+    "outOfStock": "Rupture de Stock",
+    "description": "Description",
+    "specifications": "Spécifications",
+    "reviews": "Avis",
+    "relatedProducts": "Vous Aimerez Aussi"
   },
   "cart": {
     "title": "Panier",
     "empty": "Votre panier est vide",
     "continueShopping": "Continuer les Achats",
     "total": "Total",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "tax": "TVA",
     "checkout": "Commander",
-    "remove": "Supprimer"
+    "remove": "Supprimer",
+    "summary": "Récapitulatif",
+    "items": "articles",
+    "item": "article"
   },
   "common": {
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
     "success": "Succès",
     "save": "Enregistrer",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "price": "Prix",
+    "category": "Catégorie",
+    "all": "Tout"
   }
 }
